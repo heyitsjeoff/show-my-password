@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8"/>
+    <title>show-my-password</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1"/>
+    <style>
+        input {
+            display: block;
+        }
+    </style>
+</head>
+<body>
+<p>Type a password, click the button, and then try the function on any site</p>
+<form onsubmit="event.preventDefault();">
+    <input type="hidden" value="hidden secret value"/>
+    <label for="username">username</label>
+    <input type="text" id="username"/>
+    <label for="password">password</label>
+    <input type="password" id="password"/>
+    <button id="hax">Show Password</button>
+</form>
+</body>
+<script>
+    var button = document.getElementById('hax');
+    button.addEventListener('click', activateHax);
+    function activateHax()
+    {
+        var inputs, index;
+
+        inputs = document.getElementsByTagName('input');
+        for (index = 0; index < inputs.length; ++index) {
+            inputs[index].type = 'text';
+        }
+        return false;
+    }
+</script>
+</html>
